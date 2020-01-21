@@ -53,8 +53,8 @@
   font-size: 35px;
   color: white;
   font-style: bold;
-  xborder: 2px solid red;
   justify-content: space-between;
+  xborder: 2px solid red;
 }
 
 #main-holder {
@@ -128,6 +128,10 @@
   margin: auto;
 }
 
+.perf-percent {
+  color: lightgreen;
+}
+
 .perfs {
   height: 8%;
   width: 100%;
@@ -166,23 +170,177 @@
 }
 
 #graph-selects {
-  xborder: 10px solid blue;
   height: 20%;
   width: 100%;
   flex-direction: row;
+
+  padding: 2%;
+  xborder: 10px solid blue;
 }
 
 #graph {
   position: relative;
-  xborder: 10px solid yellow;
-  height: 80%;
+  height: 100%;
   width: 100%;
+  xborder: 10px solid yellow;
 }
 
-#selectasset {
+.dropdown-menu {
+  width: 30% !important;
+  height: 10% !important;
+  background-color: #282c35;
+  xborder: 2px solid grey;
+}
+
+#dropdownmenuid {
+  width: 100% !important;
+  height: auto !important;
+  border: 1px solid lightgrey;
+}
+
+#dropdownMenuButton {
+  width: 100%;
+  color: white;
+  background-color: #282c35;
+  border: 1px solid lightgrey;
+}
+
+.dropdown {
+  display: inline-flex;
+  height: 80%;
+  width: 45%;
+  margin: 3% auto;
+  xborder: 1px solid yellow;
+}
+
+#selectsholder {
+  display: inline-flex;
+  margin: auto;
+  flex-direction: row;
+  color: white;
+  width: 50%;
+  height: 100%;
+  float: right;
+  xborder: 1px solid pink;
+}
+
+.selectsitems {
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin: auto;
+}
+
+#vertical {
+  border: none;
+  border-left: 1px solid hsla(200, 10%, 50%, 100);
+  height: 50px;
+  width: 1%;
+}
+
+.lasttradeprice {
+  display: column;
+  text-align: center;
+  xborder: 1px solid blue;
+}
+
+.lasttradepricegreen {
+  display: column;
+  text-align: center;
+  color: lightgreen;
+}
+
+#droptime {
+  width: 200px !important;
+  height: 100px !important;
+  padding: 10%;
+  text-align: center;
+  xborder: 1px solid blue;
+}
+
+#dropdowntimeframe {
+  margin: auto !important;
+  padding: 15% !important;
+  width: 100% !important;
+  height: 20% !important;
+  border-radius: 3%;
+  display: inline-flex;
+}
+
+.dropdown-item {
+  justify-content: center;
+  background-color: #282c35 !important;
+  color: black;
+  xborder-radius: 1px solid lightgrey;
+}
+
+#timedropdownmenu {
+  background-color: white;
+  border: 1px solid lightgrey;
+}
+
+#dropdowntimeitem {
+  color: #282c35;
+  background-color: white !important;
+}
+
+#pasttimetext {
+  margin: auto;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.asset-button {
+  width: 100%;
+  height: 100%;
+  background-color: #282c35;
+  color: white;
+}
+
+.assettext {
+  transition: all 0.1s ease-in-out;
+  background-color: #282c35;
+  color: white;
+}
+
+.assettext:hover {
+  text-transform: scale(1.2);
+  background-color: #282c35;
+  color: white;
+  margin-left: 5%;
+}
+
+.timebutton {
+  transition: all 0.1s ease-in-out;
+}
+
+.timebutton:hover {
+  transform: scale(1.05);
 }
 
 #chart {
-  width: 100%;
+  width: 95%;
   height: 100%;
+  justify-content: center;
+  margin: 3% auto;
+}
+
+.selectedAssetTextHolder {
+  display: inline-flex;
+  justify-content: center;
+  flex-direction: row;
+  text-align: center;
+  font-size: 150% !important;
+}
+
+#veritcalasset {
+  border: none;
+  border-left: 1px solid hsla(200, 10%, 50%, 100);
+  height: 30px;
+  width: 1%;
+
+  display: inline-flex;
+  justify-content: center;
+  flex-direction: row;
 }

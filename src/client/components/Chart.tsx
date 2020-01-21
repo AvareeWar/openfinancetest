@@ -28,7 +28,7 @@ export default class Chart extends Component<Asset, state> {
     let stats = this.props.asset.data || {};
     let period = stats.period || {};
 
-    console.log(this.props, "CHART PROPS");
+    //console.log(this.props, "CHART PROPS");
 
     let items: any = {
       rangeSelector: {
@@ -69,7 +69,6 @@ export default class Chart extends Component<Asset, state> {
     return (
       <div>
         <div id="chart">
-          {/* { myChart ? myChart : null} */}
           <HighchartsReact
             highcharts={Highcharts}
             constructorType={"stockChart"}

@@ -40,52 +40,60 @@ export class Layout extends Component<Props, state> {
             <div id="timeframe-adjust">
               <div id="timeframe"> TIME FRAME</div>
               <div id="timeframe-drop">
-                <div className="dropdown">
+                <div className="dropdown" id="droptime">
                   <button
-                    className="btn btn-secondary dropdown-toggle"
+                    className="btn btn-light btn-small dropdown-toggle"
                     type="button"
-                    id="dropdownMenuButton"
                     data-toggle="dropdown"
                     aria-haspopup="true"
                     aria-expanded="false"
+                    id="dropdowntimeframe"
                   >
-                    <div>{this.state.time}</div>
+                    <div id="pasttimetext">Past {this.state.time}</div>
+                    {/* Past {this.state.time} */}
                   </button>
+
                   <div
                     className="dropdown-menu"
+                    id='timedropdownmenu'
                     aria-labelledby="dropdownMenuButton"
                   >
                     <div
                       className="dropdown-item"
+                      id='dropdowntimeitem' //typically not supposed to have several ID's with the same name but to overwrite bootstrap this is needed
                       onClick={() => {
                         this.setTimeline("Hour");
                       }}
                     >
-                      Hour
+                      <div className="timebutton">Hour</div>
                     </div>
+
                     <div
                       className="dropdown-item"
+                      id='dropdowntimeitem'
                       onClick={() => {
                         this.setTimeline("Day");
                       }}
                     >
-                      Day
+                      <div className="timebutton">Day</div>
                     </div>
                     <div
                       className="dropdown-item"
+                      id='dropdowntimeitem'
                       onClick={() => {
                         this.setTimeline("Week");
                       }}
                     >
-                      Week
+                      <div className="timebutton">Week</div>
                     </div>
                     <div
                       className="dropdown-item"
+                      id='dropdowntimeitem'
                       onClick={() => {
                         this.setTimeline("Month");
                       }}
                     >
-                      Month
+                      <div className="timebutton">Month</div>
                     </div>
                   </div>
                 </div>

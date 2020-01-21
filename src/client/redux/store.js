@@ -11,15 +11,21 @@ if (process.browser) {
 //action types
 const GETTOKENS = "GETTOKENS";
 const GETTOKEN = "GETTOKEN";
+const GETBESTTOKENS = "GETBESTTOKENS";
 
 //action creators
 export const setTokens = tokens => ({ type: GETTOKENS, tokens });
 export const setToken = token => ({ type: GETTOKEN, token });
+export const setBestTokens = besttokens => ({
+  type: GETBESTTOKENS,
+  besttokens
+});
 
 //initial state
 const initialState = {
   tokens: [],
-  token: {}
+  token: {},
+  besttokens: []
 };
 
 //thunks
@@ -81,36 +87,56 @@ export const fetchSingleTokenFromId = token => {
   };
 };
 
-export const fetchSingleToken = token => {
+export const fetchBestTokens = () => {
   return async dispatch => {
     try {
-      // https://virtserver.swaggerhub.com/AvareeWar/Test/1.0.0/securities/OFNT/stats?periodStart=1549968342000&periodEnd=1549968442000&unit=month
-
-      let security =
-        "https://virtserver.swaggerhub.com/AvareeWar/Test/1.0.0/securities/" +
-        token.id +
-        "/stats?periodStart=" +
-        token.periodStart +
-        "&periodEnd=" +
-        token.periodEnd +
-        "&unit=" +
-        token.unit;
-
-      const { data } = await axios.get(security, {
-        headers: {
-          "Access-Control-Allow-Credentials": "true",
-          "Access-Control-Allow-Origin": "*",
-          "Access-Control-Allow-Headers":
-            "origin, x-requested-with, content-type, authorization",
-          "Access-Control-Allow-Methods": "GET,POST,OPTIONS,DELETE,PUT",
-          contentType: "application/json",
-          responseType: "application/json"
+      const tokens = await axios.get(
+        "https://virtserver.swaggerhub.com/AvareeWar/Test/1.0.0/securities",
+        {
+          headers: {
+            "Access-Control-Allow-Credentials": "true",
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Headers":
+              "origin, x-requested-with, content-type, authorization",
+            "Access-Control-Allow-Methods": "GET,POST,OPTIONS,DELETE,PUT",
+            contentType: "application/json",
+            responseType: "application/json"
+          }
         }
-      });
+      );
 
-      console.log(data, "SingleToken");
+      console.log(tokens.data.data, "tokens");
+      let tkns = [];
 
-      return dispatch(setToken(data));
+      if (tokens.data.data) {
+        for (let i = 0; i <= tokens.data.data.length - 1; i++) {
+          let token = tokens.data.data[i].id;
+          console.log(token, "TOKEN");
+          let security =
+            "https://virtserver.swaggerhub.com/AvareeWar/Test/1.0.0/securities/" +
+            token +
+            "/stats";
+
+          const { data } = await axios.get(security, {
+            headers: {
+              "Access-Control-Allow-Credentials": "true",
+              "Access-Control-Allow-Origin": "*",
+              "Access-Control-Allow-Headers":
+                "origin, x-requested-with, content-type, authorization",
+              "Access-Control-Allow-Methods": "GET,POST,OPTIONS,DELETE,PUT",
+              contentType: "application/json",
+              responseType: "application/json"
+            }
+          });
+
+          console.log(data.data, "STORE TOKEN");
+          tkns.push(data.data);
+        }
+      }
+
+      console.log(tkns, "STORE TOKENS");
+
+      return dispatch(setBestTokens(tkns));
     } catch (error) {
       console.log(error);
     }
@@ -123,6 +149,8 @@ const reducer = (state = initialState, action) => {
       return { ...state, tokens: action.tokens }; //return all tokens
     case GETTOKEN:
       return { ...state, token: action.token }; //return single token
+    case GETBESTTOKENS:
+      return { ...state, besttokens: action.besttokens };
     default:
       return state; //return default empty state
   }
