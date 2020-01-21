@@ -42,7 +42,7 @@ export class Layout extends Component<Props, state> {
               <div id="timeframe-drop">
                 <div className="dropdown" id="droptime">
                   <button
-                    className="btn btn-light btn-small dropdown-toggle"
+                    //className="btn btn-light btn-small dropdown-toggle"
                     type="button"
                     data-toggle="dropdown"
                     aria-haspopup="true"
@@ -50,17 +50,16 @@ export class Layout extends Component<Props, state> {
                     id="dropdowntimeframe"
                   >
                     <div id="pasttimetext">Past {this.state.time}</div>
-                    {/* Past {this.state.time} */}
                   </button>
 
                   <div
                     className="dropdown-menu"
-                    id='timedropdownmenu'
+                    id="timedropdownmenu"
                     aria-labelledby="dropdownMenuButton"
                   >
                     <div
                       className="dropdown-item"
-                      id='dropdowntimeitem' //typically not supposed to have several ID's with the same name but to overwrite bootstrap this is needed
+                      id="dropdowntimeitem" //typically not supposed to have several ID's with the same name but to overwrite bootstrap this is needed
                       onClick={() => {
                         this.setTimeline("Hour");
                       }}
@@ -70,7 +69,7 @@ export class Layout extends Component<Props, state> {
 
                     <div
                       className="dropdown-item"
-                      id='dropdowntimeitem'
+                      id="dropdowntimeitem"
                       onClick={() => {
                         this.setTimeline("Day");
                       }}
@@ -79,7 +78,7 @@ export class Layout extends Component<Props, state> {
                     </div>
                     <div
                       className="dropdown-item"
-                      id='dropdowntimeitem'
+                      id="dropdowntimeitem"
                       onClick={() => {
                         this.setTimeline("Week");
                       }}
@@ -88,7 +87,7 @@ export class Layout extends Component<Props, state> {
                     </div>
                     <div
                       className="dropdown-item"
-                      id='dropdowntimeitem'
+                      id="dropdowntimeitem"
                       onClick={() => {
                         this.setTimeline("Month");
                       }}

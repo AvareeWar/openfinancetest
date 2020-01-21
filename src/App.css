@@ -20,9 +20,9 @@
 
 #timeframe-adjust {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   height: 100%;
-  width: 35%;
+  width: 40%;
   xborder: 10px solid green;
   float: left;
 }
@@ -250,9 +250,11 @@
 }
 
 #droptime {
-  width: 200px !important;
-  height: 100px !important;
-  padding: 10%;
+  min-width: 120% !important;
+  min-height: 30% !important;
+  margin: auto;
+  margin-top: 10%;
+  margin-bottom: 15%;
   text-align: center;
   xborder: 1px solid blue;
 }
@@ -261,9 +263,11 @@
   margin: auto !important;
   padding: 15% !important;
   width: 100% !important;
-  height: 20% !important;
+  xheight: 50% !important;
   border-radius: 3%;
-  display: inline-flex;
+  display: flex;
+  font-size: 50%;
+  xborder: 3px solid red;
 }
 
 .dropdown-item {
@@ -288,7 +292,9 @@
   width: 100%;
   height: 100%;
   text-align: center;
-  vertical-align: middle;
+  xvertical-align: middle;
+  bottom: 10%;
+  padding-bottom: 5% !important;
 }
 
 .asset-button {
