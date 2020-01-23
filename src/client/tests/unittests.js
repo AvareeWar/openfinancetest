@@ -1,10 +1,15 @@
+import enzyme, { mount } from "enzyme";
+import sinon from "sinon";
+import Adapter from "enzyme-adapter-react-16";
+// Enzyme.configure({ adapter: new EnzymeAdapter() });
 import Layout from "../components/Layout";
 import React from "react";
 import setTokens from "../redux/store";
+const { expect } = require("chai");
+const adapter = new Adapter();
+enzyme.configure({ adapter });
 
-import enzyme, { mount } from "enzyme";
-
-describe("The Whole Project", () => {
+describe("WholeProject", () => {
   describe("<Layout> ", () => {
     it("renders initially without errors", () => {
       const wrapper = mount(<Layout />);
